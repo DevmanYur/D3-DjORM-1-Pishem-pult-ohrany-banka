@@ -3,7 +3,7 @@ from datacenter.models import Visit
 from django.shortcuts import render
 
 
-def passcard_info_view(request, passcard_id):
+def passcard_info_view(request, passcode):
     passcard = Passcard.objects.all()[0]
     # Программируем здесь
 
