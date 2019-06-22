@@ -9,7 +9,7 @@ def passcard_info_view(request, passcode):
 
     this_passcard_visits = [
         {
-            "date": "11-04-2018",
+            "entered_at": "11-04-2018",
             "duration": "25:03",
             "is_strange": False
         },
