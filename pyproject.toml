@@ -9,7 +9,7 @@ description = ""
 name = "django-orm-standalone-5"
 version = "0.1.0"
 [tool.poetry.dependencies]
-django = "^1.11.0"
-psycopg2-binary = "^2.8"
-python = "^3.7"
+django = "1.11.*"
+psycopg2-binary = "2.8.*"
+python = "3.8.*"
 [tool.poetry.dev-dependencies]
