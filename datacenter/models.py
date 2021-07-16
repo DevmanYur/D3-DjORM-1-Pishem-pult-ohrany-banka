@@ -20,8 +20,8 @@ class Visit(models.Model):
     leaved_at = models.DateTimeField(null=True)
 
     def __str__(self):
-        return "{user} entered at {entered} {leaved}".format(
+        return '{user} entered at {entered} {leaved}'.format(
             user=self.passcard.owner_name,
             entered=self.entered_at,
-            leaved= "leaved at " + str(self.leaved_at) if self.leaved_at else "not leaved"
+            leaved= 'leaved at ' + str(self.leaved_at) if self.leaved_at else 'not leaved'
         )
