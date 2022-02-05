@@ -15,7 +15,7 @@ class Passcard(models.Model):
 
 class Visit(models.Model):
     created_at = models.DateTimeField(auto_now=True)
-    passcard = models.ForeignKey(Passcard)
+    passcard = models.ForeignKey(Passcard, on_delete=models.CASCADE)
     entered_at = models.DateTimeField()
     leaved_at = models.DateTimeField(null=True)
 
@@ -23,5 +23,8 @@ class Visit(models.Model):
         return '{user} entered at {entered} {leaved}'.format(
             user=self.passcard.owner_name,
             entered=self.entered_at,
-            leaved= 'leaved at ' + str(self.leaved_at) if self.leaved_at else 'not leaved'
+            leaved=(
+                f'leaved at {self.leaved_at}'
+                if self.leaved_at else 'not leaved'
+            )
         )
