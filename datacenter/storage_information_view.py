@@ -11,11 +11,12 @@ def storage_information_view(request):
     for passcard_value in passcard:
         visit = Visit.objects.filter(passcard=passcard_value, leaved_at=None)
         for visit_value in visit:
-            dictionary = dict()
-            dictionary['who_entered'] = visit_value.passcard.owner_name
-            dictionary['entered_at'] = get_format_entered_at(visit_value)
-            dictionary['duration'] = get_format_duration(visit_value)
-            dictionary['is_strange'] = is_visit_long(visit_value)
+            dictionary = {
+            'who_entered': visit_value.passcard.owner_name,
+            'entered_at': get_format_entered_at(visit_value),
+            'duration': get_format_duration(visit_value),
+            'is_strange': is_visit_long(visit_value)
+            }
             non_closed_visits.append(dictionary)
 
     context = {

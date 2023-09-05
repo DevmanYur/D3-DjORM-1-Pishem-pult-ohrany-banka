@@ -11,10 +11,11 @@ def passcard_info_view(request, passcode):
       this_passcard_visits = []
       visit = Visit.objects.filter(passcard=passcard)
       for visit_value in visit:
-          dictionary = dict()
-          dictionary['entered_at'] = get_format_entered_at(visit_value)
-          dictionary['duration'] = get_format_duration(visit_value)
-          dictionary['is_strange'] = is_visit_long(visit_value)
+          dictionary = {
+          'entered_at': get_format_entered_at(visit_value),
+          'duration': get_format_duration(visit_value),
+          'is_strange': is_visit_long(visit_value)
+          }
           this_passcard_visits.append(dictionary)
       context = {
         'passcard': passcard,
