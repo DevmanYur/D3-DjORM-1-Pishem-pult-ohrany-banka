@@ -11,12 +11,8 @@
 Укажите время в минутах, после которого визит будет считаться подозрительным
 datacenter
    functions.py
-
-\```
-def is_visit_long(value):
-    minutes = **60**
-\```
-
+     def is_visit_long(value):
+         minutes = **60**
 
 ## Описание запросов
 **active_passcards_view.py**
