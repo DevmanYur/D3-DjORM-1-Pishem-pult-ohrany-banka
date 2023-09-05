@@ -1,31 +1,28 @@
-## Synopsis
+## Синопсис
 
-At the top of the file there should be a short introduction and/ or overview that explains **what** the project is. This description should match descriptions added for package managers (Gemspec, package.json, etc.)
+Скрипт по обеспечению пропускного режима в хранилище Банка, который позволяет:
+- следить за актуальностью действия пропусков сотрудников
+- Просматривать список сотрудников, которые находятся на текущий момент в хранилище Банка
+- просматривать всю историю посещения отдельно взятого сотрудника
+- выявлять подозрительные посещения
 
 ## Code Example
 
-Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
+Время в минутах, после которого визит будет считаться подозрительным
 
-## Motivation
+functions.py
+\```
+def is_visit_long(value):
+    minutes = 60
+\```
 
-A short description of the motivation behind the creation and maintenance of the project. This should explain **why** the project exists.
 
-## Installation
+## Описание запросов
+**active_passcards_view.py**
+запрос списка сотрудников с активными пропусками
 
-Provide code examples and explanations of how to get the project.
+**storage_information_view.py**
+запрос списка сотрудников находящихся в хранилище банка
 
-## API Reference
-
-Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
-
-## Tests
-
-Describe and show how to run the tests with code examples.
-
-## Contributors
-
-Let people know how they can dive into the project, include important links to things like issue trackers, irc, twitter accounts if applicable.
-
-## License
-
-A short snippet describing the license (MIT, Apache, etc.)
+**passcard_info_view.py - запрос**
+списка визитов по отдельно взятому сотруднику
