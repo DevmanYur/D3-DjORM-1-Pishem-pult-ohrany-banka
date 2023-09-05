@@ -7,17 +7,17 @@ from datacenter.functions import is_visit_long, get_format_entered_at, get_forma
 
 
 def passcard_info_view(request, passcode):
-      p = get_object_or_404(Passcard, passcode=passcode)
+      passcard = get_object_or_404(Passcard, passcode=passcode)
       this_passcard_visits = []
-      v = Visit.objects.filter(passcard=p)
-      for x in v:
+      visit = Visit.objects.filter(passcard=passcard)
+      for visit_value in visit:
           dictionary = dict()
-          dictionary['entered_at'] = get_format_entered_at(x)
-          dictionary['duration'] = get_format_duration(x)
-          dictionary['is_strange'] = is_visit_long(x)
+          dictionary['entered_at'] = get_format_entered_at(visit_value)
+          dictionary['duration'] = get_format_duration(visit_value)
+          dictionary['is_strange'] = is_visit_long(visit_value)
           this_passcard_visits.append(dictionary)
       context = {
-        'passcard': p,
+        'passcard': passcard,
         'this_passcard_visits': this_passcard_visits
       }
       return render(request, 'passcard_info.html', context)
