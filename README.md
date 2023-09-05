@@ -9,15 +9,10 @@
 ## Code Example
 
 Укажите время в минутах, после которого визит будет считаться подозрительным
-datacenter\n
-functions.py\n
-def is_visit_long(value): minutes = **60**
-
-
-
-\```python
-print("Привет, мир!")
-\```
+>datacenter
+>>functions.py
+>>>def is_visit_long(value):
+>>>>minutes = **60**
 
 ## Описание запросов
 **active_passcards_view.py**
