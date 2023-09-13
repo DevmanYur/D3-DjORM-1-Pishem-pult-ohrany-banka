@@ -5,3 +5,5 @@ replit.nix
 
 /.replit
 /*replit
+/**/*.cpython-311.pyc
+/.idea
