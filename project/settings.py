@@ -1,33 +1,30 @@
 import os
-from dotenv import load_dotenv
-from pathlib import Path  # python3 only
-
-
-env_path = Path('.') / '.env'
-load_dotenv(dotenv_path=env_path)
-
+from environs import Env
+env = Env()
+env.read_env()
 
 
 DATABASES = {
     'default': {
-        'ENGINE': os.getenv("ENGINE"),
-        'HOST': os.getenv("HOST"),
-        'PORT': os.getenv("PORT"),
-        'NAME': os.getenv("NAME"),
-        'USER': os.getenv("USER"),
-        'PASSWORD': os.getenv("PASSWORD"),
+        'ENGINE': env("ENGINE"),
+        'HOST': env("HOST"),
+        'PORT': env("PORT"),
+        'NAME': env("NAME"),
+        'USER': env("USER"),
+        'PASSWORD': env("PASSWORD"),
     }
 }
 
-INSTALLED_APPS = [os.getenv("INSTALLED_APPS")]
+INSTALLED_APPS = [env("INSTALLED_APPS")]
 
-SECRET_KEY = os.getenv("SECRET_KEY")
+SECRET_KEY = env("SECRET_KEY")
 
-DEBUG = False
 
-ROOT_URLCONF = os.getenv("ROOT_URLCONF")
+DEBUG = env.bool("DEBUG_FALSE", "DEBUG_TRUE")
 
-ALLOWED_HOSTS = [os.getenv("ALLOWED_HOSTS")]
+ROOT_URLCONF = env("ROOT_URLCONF")
+
+ALLOWED_HOSTS = [env("ALLOWED_HOSTS")]
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
