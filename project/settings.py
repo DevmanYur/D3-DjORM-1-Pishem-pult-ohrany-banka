@@ -1,25 +1,31 @@
 import os
+from dotenv import load_dotenv
+from pathlib import Path  # python3 only
+env_path = Path('.') / '.env'
+load_dotenv(dotenv_path=env_path)
+
+
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'HOST': 'checkpoint.devman.org',
-        'PORT': '5434',
-        'NAME': 'checkpoint',
-        'USER': 'guard',
-        'PASSWORD': 'osim5',
+        'ENGINE': os.getenv("ENGINE"),
+        'HOST': os.getenv("HOST"),
+        'PORT': os.getenv("PORT"),
+        'NAME': os.getenv("NAME"),
+        'USER': os.getenv("USER"),
+        'PASSWORD': os.getenv("PASSWORD"),
     }
 }
 
-INSTALLED_APPS = ['datacenter']
+INSTALLED_APPS = [os.getenv("INSTALLED_APPS")]
 
-SECRET_KEY = 'REPLACE_ME'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
-DEBUG = True
+DEBUG = os.getenv("DEBUG")
 
-ROOT_URLCONF = 'project.urls'
+ROOT_URLCONF = os.getenv("ROOT_URLCONF")
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [os.getenv("ALLOWED_HOSTS")]
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
