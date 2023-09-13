@@ -7,3 +7,4 @@ replit.nix
 /*replit
 /**/*.cpython-311.pyc
 /.idea
+/**/*.env
