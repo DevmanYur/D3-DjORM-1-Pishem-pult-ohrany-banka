@@ -1,6 +1,8 @@
 import os
 from dotenv import load_dotenv
 from pathlib import Path  # python3 only
+
+
 env_path = Path('.') / '.env'
 load_dotenv(dotenv_path=env_path)
 
@@ -21,7 +23,7 @@ INSTALLED_APPS = [os.getenv("INSTALLED_APPS")]
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 
-DEBUG = os.getenv("DEBUG")
+DEBUG = False
 
 ROOT_URLCONF = os.getenv("ROOT_URLCONF")
 

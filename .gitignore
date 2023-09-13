@@ -8,3 +8,6 @@ replit.nix
 /**/*.cpython-311.pyc
 /.idea
 /**/*.env
+
+/.vscode
+/.DS_Store
